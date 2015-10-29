@@ -22,6 +22,16 @@ my_directory=$(pwd)
 echo "Python Guard wurde gestartet und wartet auf Änderungen an $2 ..."
 cd "$script_directory"
 
+if [ ! -f "$2" ]; then
+  echo "$2 existiert nicht! Programm wird beendet"
+  exit
+fi
+
+if [ ! -f "$1" ]; then
+  echo "$1 existiert nicht! Programm wird beendet"
+  exit
+fi
+
 while [ 1 ]
 do
     python "$my_directory/sleep_until_modified.py" "$2"
