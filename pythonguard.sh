@@ -3,6 +3,7 @@
 #Sollte mit Git versioniert sein!
 
 scriptfilename=`basename "$0"`
+my_directory=`dirname "$0"`
 
 if [ $# -lt 2 ]
   then
@@ -11,13 +12,12 @@ Wenn in diesem Verzeichnis sleep_until_modified.py liegt, kann jedes Mal ein Skr
 Um das Programm zu beenden, muss zwei Mal Control-C gedrückt werden, sonst wird nur Python beendet. Bei Beendigung dieses Skripts wird zwangsweise das übergebene Skript nochmal ausgeführt.
 Wichtig: Immer vollständige Pfade eingeben!
 
-Beispielaufruf: ./$scriptfilename /complete_path/skript.sh /complete_path/sich_aendernde_Datei.txt [Parameter_an_skript]
+Beispielaufruf: /complete_path/$scriptfilename /complete_path/skript.sh /complete_path/sich_aendernde_Datei.txt [Parameter_an_skript]
 EOF
 	exit
 fi
 
 script_directory=$(dirname "$1")
-my_directory=$(pwd)
 
 echo "Python Guard wurde gestartet und wartet auf Änderungen an $2 ..."
 cd "$script_directory"
