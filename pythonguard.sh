@@ -19,6 +19,7 @@ fi
 
 script_directory=$(dirname "$1")
 
+clear
 echo "Python Guard wurde gestartet und wartet auf Änderungen an $2 ..."
 cd "$script_directory"
 
@@ -43,7 +44,16 @@ do
   		else
     		"$1"
   	fi
+
+    if [ ! -f "$my_directory/sleep_until_modified.py" ]; then
+      echo "Rufen Sie das Programm bitte mit vollständigen Pfad auf."
+      echo "$my_directory/sleep_until_modified.py existiert nämlich nicht in"
+      echo "$(pwd)"
+      exit
+    fi  
+
   	sleep 1
+
   	#Während Sleep kann das Programm beendet werden mit Control-C (zwei Mal!)
     if [ $count -eq 0 ]; then
       echo "sleep 1 vorbei, jetzt wieder python sleep_until_modified.py ... "
