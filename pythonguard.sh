@@ -38,12 +38,13 @@ count=0
 while [ 1 ]
 do
     # Erst ausführen
-    if [ "$#" -eq 3 ]
-  		then
+    if [ "$#" -eq 3 ]; then
   			"$1" "$3"
-  		else
-    		"$1"
-  	fi
+  	elif [ "$#" -eq 4 ]; then
+        "$1" "$3" "$4"
+    else
+        "$1"
+    fi
 
     if [ ! -f "$my_directory/sleep_until_modified.py" ]; then
       echo "Rufen Sie das Programm bitte mit vollständigen Pfad auf."
