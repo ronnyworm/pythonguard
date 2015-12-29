@@ -102,10 +102,15 @@ def main():
     file = opt.args[0]
     prev_time = os.stat(file).st_mtime
     while True:
-        time.sleep(opt.poll_interval)
-        new_time = os.stat(file).st_mtime
-        if new_time != prev_time:
-            break
+        try:
+            time.sleep(opt.poll_interval)
+        
+            new_time = os.stat(file).st_mtime
+            if new_time != prev_time:
+                break
+        except:
+            print "Mit Tastatur unterbrochen"
+            sys.exit(0)
 
 
 if __name__ == "__main__":
