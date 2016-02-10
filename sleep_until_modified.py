@@ -1,4 +1,5 @@
-#https://bitbucket.org/denilsonsa/small_scripts/raw/bdb5b72d3fd5e1cf4a2abe5716beae76245f463a/sleep_until_modified.py
+# This is not from me!
+# Original Source: https://bitbucket.org/denilsonsa/small_scripts/src/bdfa65b84c7041e8b2cf05d1eb7abf4fdf3af41b/sleep_until_modified.py?fileviewer=file-view-default
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 # vi:ts=4 sw=4 et
@@ -109,7 +110,7 @@ def main():
             if new_time != prev_time:
                 break
         except:
-            print "Mit Tastatur unterbrochen"
+            print "Stopped by user"
             sys.exit(0)
 
 
